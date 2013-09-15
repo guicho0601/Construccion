@@ -61,9 +61,9 @@ public class SqliteConnect{
 		 ContentValues contentValues = new ContentValues();
 		 contentValues.put( "nombre" , nombre);
 		 contentValues.put( "encargado", encargado);
-		 contentValues.put( "idubiciacion" , ubicacion);
+		 contentValues.put( "idubicacion" , ubicacion);
 		 contentValues.put("idestado", estado);
-		 contentValues.put("cnatidad_empleados", cantidad);
+		 contentValues.put("cantidad_empleados", cantidad);
 		 contentValues.put("costo_aproximado", costo);
 		 contentValues.put("tiempo_aproximado", tiempo);
 	                      //table, nullColumnHack, values
