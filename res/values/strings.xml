@@ -15,5 +15,7 @@
     <string name="tiempo">Tiempo aprox.:</string>
     <string name="guardar">Guardar registro</string>
     <string name="title_activity_ver_proyectos">Ver_proyectos</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
 
 </resources>

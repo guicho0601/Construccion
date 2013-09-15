@@ -25,14 +25,18 @@
         <activity
             android:name="com.example.construccion.Crear_proyecto"
             android:label="@string/title_activity_crear_proyecto"
-            android:parentActivityName="com.example.myfirstapp.Lista_proyectos" >
+            android:parentActivityName="com.example.construccion.Lista_proyectos" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.myfirstapp.Lista_proyectos" />
+                android:value="com.example.construccion.Lista_proyectos" />
         </activity>
         <activity
             android:name="com.example.construccion.Ver_proyectos"
-            android:label="@string/title_activity_ver_proyectos" >
+            android:label="@string/title_activity_ver_proyectos" 
+            android:parentActivityName="com.example.construccion.Lista_proyectos" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.construccion.Lista_proyectos" />
         </activity>
     </application>
 

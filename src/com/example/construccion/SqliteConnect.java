@@ -72,7 +72,7 @@ public class SqliteConnect{
 	 
 	 public Dictionary<String,String> consulta(int id){
 		 Dictionary<String,String> d=new Hashtable<String, String>();
-		 Cursor cursor = db.query("proyecto", new String[]{"nombre","encargado","idubicacion","idestado","cantidad_empleados","costo_aproximado","tiempo_aproximado"}, null, null, null, null, null);
+		 Cursor cursor = db.query("proyecto", new String[]{"nombre","encargado","idubicacion","idestado","cantidad_empleados","costo_aproximado","tiempo_aproximado"}, "idproyecto="+id, null, null, null, null);
 		 if( cursor.moveToFirst() )
 		  {
 		   do{

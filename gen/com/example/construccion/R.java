@@ -28,9 +28,10 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090019;
+        public static final int action_settings=0x7f090021;
         public static final int bot_save=0x7f090016;
         public static final int button1=0x7f090018;
+        public static final int button2=0x7f090020;
         public static final int edit_cantidad=0x7f09000e;
         public static final int edit_costo=0x7f090011;
         public static final int edit_encargado=0x7f09000b;
@@ -54,6 +55,13 @@ public final class R {
         public static final int textView5=0x7f09000d;
         public static final int textView6=0x7f090010;
         public static final int textView7=0x7f090013;
+        public static final int text_cantidad=0x7f09001d;
+        public static final int text_costo=0x7f09001e;
+        public static final int text_encargado=0x7f09001c;
+        public static final int text_estado=0x7f09001b;
+        public static final int text_nombre=0x7f090019;
+        public static final int text_tiempo=0x7f09001f;
+        public static final int text_ubicacion=0x7f09001a;
     }
     public static final class layout {
         public static final int activity_crear_proyecto=0x7f030000;
@@ -71,10 +79,12 @@ public final class R {
         public static final int boton_nuevo=0x7f060003;
         public static final int cantidad=0x7f060009;
         public static final int costo=0x7f06000a;
+        public static final int eliminar=0x7f06000f;
         public static final int encargado=0x7f060008;
         public static final int estado=0x7f060007;
         public static final int guardar=0x7f06000c;
         public static final int hello_world=0x7f060002;
+        public static final int modificar=0x7f06000e;
         public static final int nombre=0x7f060005;
         public static final int tiempo=0x7f06000b;
         public static final int title_activity_crear_proyecto=0x7f060004;

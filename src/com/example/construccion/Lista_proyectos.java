@@ -3,7 +3,6 @@ package com.example.construccion;
 import java.util.ArrayList;
 
 import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
@@ -33,7 +32,8 @@ public class Lista_proyectos extends Activity {
                     int position, long id) {
                 
                 //Toast.makeText(getApplicationContext(),((TextView) view).getText(), Toast.LENGTH_SHORT).show();
-            	int h = Integer.parseInt(ids.get(position+1));
+            	System.out.println("Posicion: "+position);
+            	int h = Integer.parseInt(ids.get(position));
             	consultar_proyecto(h);
             }
         });
@@ -48,7 +48,8 @@ public class Lista_proyectos extends Activity {
 	
 	public void consultar_proyecto(int id){
 		Intent intent = new Intent(this,Ver_proyectos.class);
-		startActivity(i);
+		intent.putExtra("id", ""+id);
+		startActivity(intent);
 	}
 	
 	public void llenar_lista(){
@@ -76,10 +77,7 @@ public class Lista_proyectos extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    super.onActivityResult(requestCode, resultCode, data);
-	    if (resultCode == RESULT_CANCELED) {
-	        Toast.makeText(this, "Resultado cancelado", Toast.LENGTH_SHORT)
-	                .show();
-	    } else {
+	    if (resultCode == RESULT_OK) {
 	        llenar_lista();
 	        Toast t =Toast.makeText(this, "Registro guardado exitosamente", Toast.LENGTH_SHORT);
 	        t.show();
