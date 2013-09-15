@@ -49,7 +49,7 @@ public class Lista_proyectos extends Activity {
 	public void consultar_proyecto(int id){
 		Intent intent = new Intent(this,Ver_proyectos.class);
 		intent.putExtra("id", ""+id);
-		startActivity(intent);
+		startActivityForResult(intent,id);
 	}
 	
 	public void llenar_lista(){
@@ -78,8 +78,16 @@ public class Lista_proyectos extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	    super.onActivityResult(requestCode, resultCode, data);
 	    if (resultCode == RESULT_OK) {
+	    	String resultado = data.getExtras().getString("resultado");
+	    	int h = Integer.parseInt(resultado);
+	    	Toast t;
+	    	if(h==1){
+	    		t =Toast.makeText(this, "Registro guardado exitosamente", Toast.LENGTH_SHORT);
+	    	}else{
+	    		t =Toast.makeText(this, "Registro eliminado", Toast.LENGTH_SHORT);
+	    	}
 	        llenar_lista();
-	        Toast t =Toast.makeText(this, "Registro guardado exitosamente", Toast.LENGTH_SHORT);
+	        
 	        t.show();
 	    }
 	}

@@ -106,13 +106,13 @@
         android:gravity="center" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/mod_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/modificar" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/eli_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/eliminar" />

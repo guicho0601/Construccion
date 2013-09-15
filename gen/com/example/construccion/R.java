@@ -28,16 +28,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090021;
+        public static final int action_settings=0x7f090022;
         public static final int bot_save=0x7f090016;
         public static final int button1=0x7f090018;
-        public static final int button2=0x7f090020;
         public static final int edit_cantidad=0x7f09000e;
         public static final int edit_costo=0x7f090011;
         public static final int edit_encargado=0x7f09000b;
         public static final int edit_nombre=0x7f090002;
         public static final int edit_tiempo=0x7f090014;
+        public static final int eli_button=0x7f090021;
         public static final int listView1=0x7f090017;
+        public static final int mod_button=0x7f090020;
         public static final int spin_estados=0x7f090008;
         public static final int spin_ubicacion=0x7f090005;
         public static final int tableRow1=0x7f090000;

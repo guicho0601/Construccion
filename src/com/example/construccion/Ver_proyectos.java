@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Ver_proyectos extends Activity {
@@ -20,6 +22,27 @@ public class Ver_proyectos extends Activity {
         String message = intent.getStringExtra("id");
         int id = Integer.parseInt(message);
         set_values(id);
+        
+        Button b = (Button)findViewById(R.id.mod_button);
+        b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                modificar();
+            }
+        });
+        b = (Button)findViewById(R.id.eli_button);
+        b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                eliminar();
+            }
+        });
+	}
+	
+	private void modificar(){
+		
+	}
+	
+	private void eliminar(){
+		
 	}
 	
 	private void set_values(int id){
