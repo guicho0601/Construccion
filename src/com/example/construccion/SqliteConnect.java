@@ -83,4 +83,20 @@ public class SqliteConnect{
 		  }
 		 return d;
 	 }
+	 
+	 public void eliminar(int id){
+		 db.delete( "proyecto" , "idproyecto=" + id ,  null);
+	 }
+	 
+	 public void modificar(int id,String nombre,int ubicacion,int estado, String encargado, int cantidad,double costo,int tiempo){
+		 ContentValues contentValues = new ContentValues();
+		 contentValues.put( "nombre" , nombre);
+		 contentValues.put( "encargado", encargado);
+		 contentValues.put( "idubicacion" , ubicacion);
+		 contentValues.put("idestado", estado);
+		 contentValues.put("cantidad_empleados", cantidad);
+		 contentValues.put("costo_aproximado", costo);
+		 contentValues.put("tiempo_aproximado", tiempo);
+		 db.update("proyecto", contentValues,"idproyecto="+id ,null);
+	 }
 }

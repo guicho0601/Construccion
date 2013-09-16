@@ -1,5 +1,7 @@
 package com.example.construccion;
 
+import java.util.Dictionary;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,11 +19,13 @@ public class Crear_proyecto extends Activity {
 	private Spinner estados,ubicaciones;
 	private EditText nombres,encargado,cant,cost,tie;
 	private Button guardar_boton;
+	private boolean modificando=false;
+	private int idproyecto;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_crear_proyecto);
+		setContentView(R.layout.activity_crear_proyecto);        
 		
 		guardar_boton = (Button)findViewById(R.id.bot_save);
 		
@@ -41,6 +45,31 @@ public class Crear_proyecto extends Activity {
             }
         });
 		
+		Intent intent = getIntent();
+		if(intent.getStringExtra("funcion")!=null){
+			modificando=true;
+			idproyecto = Integer.parseInt(intent.getStringExtra("id"));
+			System.out.println(idproyecto);
+			set_values(idproyecto);
+		}		
+	}
+	
+	private void set_values(int id){
+		SqliteConnect sq = new SqliteConnect(this);
+		sq.abrir();
+		Dictionary<String,String> d = sq.consulta(id);
+		sq.cerrar();
+		
+		get_values();
+		
+		nombres.setText(d.get("nombre"));
+		encargado.setText(d.get("encargado"));
+		cant.setText(d.get("cantidad_empleados"));
+		cost.setText(d.get("costo_aproximado"));
+		tie.setText(d.get("tiempo_aproximado"));
+		estados.setSelection(Integer.parseInt(d.get("idestado"))-1);
+		ubicaciones.setSelection(Integer.parseInt(d.get("idubicacion"))-1);
+						
 	}
 	
 	private void get_values(){
@@ -68,12 +97,16 @@ public class Crear_proyecto extends Activity {
         return super.onOptionsItemSelected(item);
     }
 	
-	private void crear_registro(){
+	private void crear_registro(){		
 		get_values();
 		SqliteConnect sq = new SqliteConnect(this);
 		sq.abrir();
-		long h =sq.insertar(nombres.getText().toString(), ubicaciones.getSelectedItemPosition()+1, estados.getSelectedItemPosition()+1, encargado.getText().toString(), Integer.parseInt(cant.getText().toString()), Double.parseDouble(cost.getText().toString()),Integer.parseInt(tie.getText().toString()));
-		System.out.println(h);
+		if(!modificando){
+			long h =sq.insertar(nombres.getText().toString(), ubicaciones.getSelectedItemPosition()+1, estados.getSelectedItemPosition()+1, encargado.getText().toString(), Integer.parseInt(cant.getText().toString()), Double.parseDouble(cost.getText().toString()),Integer.parseInt(tie.getText().toString()));
+			System.out.println(h);
+		}else{
+			sq.modificar(idproyecto, nombres.getText().toString(), ubicaciones.getSelectedItemPosition()+1, estados.getSelectedItemPosition()+1, encargado.getText().toString(), Integer.parseInt(cant.getText().toString()), Double.parseDouble(cost.getText().toString()),Integer.parseInt(tie.getText().toString()));
+		}		
 		sq.cerrar();
 		Intent i = getIntent();
 		i.putExtra("resultado", "1");

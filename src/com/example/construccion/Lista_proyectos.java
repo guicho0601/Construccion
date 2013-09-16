@@ -80,15 +80,19 @@ public class Lista_proyectos extends Activity {
 	    if (resultCode == RESULT_OK) {
 	    	String resultado = data.getExtras().getString("resultado");
 	    	int h = Integer.parseInt(resultado);
-	    	Toast t;
 	    	if(h==1){
-	    		t =Toast.makeText(this, "Registro guardado exitosamente", Toast.LENGTH_SHORT);
-	    	}else{
-	    		t =Toast.makeText(this, "Registro eliminado", Toast.LENGTH_SHORT);
+	    		Toast.makeText(this, "Registro guardado exitosamente", Toast.LENGTH_SHORT).show();
+	    	}if(h==2){
+	    		Toast.makeText(this, "Registro eliminado", Toast.LENGTH_SHORT).show();
+	    	}if(h==3){
+	    		String id = data.getExtras().getString("id");
+	    		System.out.println("Recibo: "+id);
+	    		Intent i = new Intent(this,Crear_proyecto.class);
+	    		i.putExtra("id", id);
+	    		i.putExtra("funcion", "1");
+	    		startActivityForResult(i,1);
 	    	}
-	        llenar_lista();
-	        
-	        t.show();
+	        llenar_lista();	        
 	    }
 	}
 
