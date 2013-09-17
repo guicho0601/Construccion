@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Crear_proyecto extends Activity {
 	
@@ -98,20 +99,26 @@ public class Crear_proyecto extends Activity {
     }
 	
 	private void crear_registro(){		
-		get_values();
-		SqliteConnect sq = new SqliteConnect(this);
-		sq.abrir();
-		if(!modificando){
-			long h =sq.insertar(nombres.getText().toString(), ubicaciones.getSelectedItemPosition()+1, estados.getSelectedItemPosition()+1, encargado.getText().toString(), Integer.parseInt(cant.getText().toString()), Double.parseDouble(cost.getText().toString()),Integer.parseInt(tie.getText().toString()));
-			System.out.println(h);
+		get_values();		
+		if(nombres.getText().toString().trim().length()==0||encargado.getText().toString().trim().length()==0||cant.getText().toString().trim().length()==0||cost.getText().toString().trim().length()==0||tie.getText().toString().trim().length()==0){
+			System.out.println("Hay vacios");
+			Toast.makeText(this, "No puede dejar campos vacios", Toast.LENGTH_LONG).show();	
 		}else{
-			sq.modificar(idproyecto, nombres.getText().toString(), ubicaciones.getSelectedItemPosition()+1, estados.getSelectedItemPosition()+1, encargado.getText().toString(), Integer.parseInt(cant.getText().toString()), Double.parseDouble(cost.getText().toString()),Integer.parseInt(tie.getText().toString()));
-		}		
-		sq.cerrar();
-		Intent i = getIntent();
-		i.putExtra("resultado", "1");
-		setResult(RESULT_OK,i);
-		onBackPressed();
+			System.out.println("Todo bien");
+			SqliteConnect sq = new SqliteConnect(this);
+			sq.abrir();
+			if(!modificando){
+				long h =sq.insertar(nombres.getText().toString(), ubicaciones.getSelectedItemPosition()+1, estados.getSelectedItemPosition()+1, encargado.getText().toString(), Integer.parseInt(cant.getText().toString()), Double.parseDouble(cost.getText().toString()),Integer.parseInt(tie.getText().toString()));
+				System.out.println(h);
+			}else{
+				sq.modificar(idproyecto, nombres.getText().toString(), ubicaciones.getSelectedItemPosition()+1, estados.getSelectedItemPosition()+1, encargado.getText().toString(), Integer.parseInt(cant.getText().toString()), Double.parseDouble(cost.getText().toString()),Integer.parseInt(tie.getText().toString()));
+			}		
+			sq.cerrar();
+			Intent i = getIntent();
+			i.putExtra("resultado", "1");
+			setResult(RESULT_OK,i);
+			onBackPressed();
+		}
 	}
 
 }

@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="boton_nuevo">Crear nuevo proyecto</string>
-    <string name="title_activity_crear_proyecto">Crear_proyecto</string>
+    <string name="title_activity_crear_proyecto">Proyectos</string>
     <string name="nombre">Nombre:</string>
     <string name="ubicacion">Ubicacion:</string>
     <string name="estado">Estado:</string>
@@ -14,7 +14,7 @@
     <string name="costo">Costo aprox.:</string>
     <string name="tiempo">Tiempo aprox.:</string>
     <string name="guardar">Guardar registro</string>
-    <string name="title_activity_ver_proyectos">Ver_proyectos</string>
+    <string name="title_activity_ver_proyectos">Proyectos</string>
     <string name="modificar">Modificar</string>
     <string name="eliminar">Eliminar</string>
 
